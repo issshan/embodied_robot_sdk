@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-21",
+  "scope": "NET core + Python simulator + loopback UDP only",
+  "unity_editor_compiled": false,
+  "quest3s_tested": false,
+  "logs": [
+    {
+      "command": [
+        "dotnet",
+        "restore",
+        "Tests/CoreChecks.csproj",
+        "--configfile",
+        "Tests/NuGet.Config"
+      ],
+      "returncode": 0,
+      "output": "  正在确定要还原的项目…\n  所有项目均是最新的，无法还原。\n"
+    },
+    {
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "Tests/CoreChecks.csproj",
+        "--configuration",
+        "Release",
+        "--no-restore"
+      ],
+      "returncode": 0,
+      "output": "PASS core checks=1129\n"
+    },
+    {
+      "command": [
+        "[local-user]\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "Tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "output": "test_bad_packets (test_simulator.SimulatorTests.test_bad_packets) ... ok\ntest_disabled_holds (test_simulator.SimulatorTests.test_disabled_holds) ... ok\ntest_handshake_and_movement (test_simulator.SimulatorTests.test_handshake_and_movement) ... ok\ntest_initial_enabled_rejected (test_simulator.SimulatorTests.test_initial_enabled_rejected) ... ok\ntest_out_of_order (test_simulator.SimulatorTests.test_out_of_order) ... ok\ntest_peer_lock (test_simulator.SimulatorTests.test_peer_lock) ... ok\ntest_session_takeover_blocked (test_simulator.SimulatorTests.test_session_takeover_blocked) ... ok\ntest_watchdog (test_simulator.SimulatorTests.test_watchdog) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "Tests/CoreChecks.csproj",
+        "--configuration",
+        "Release",
+        "--no-build",
+        "--no-restore",
+        "--",
+        "127.0.0.1",
+        "49176"
+      ],
+      "returncode": 0,
+      "output": "PASS core checks=1129\nPASS UDP CSharp-to-Python handshake + motion + disable\n"
+    }
+  ]
+}
