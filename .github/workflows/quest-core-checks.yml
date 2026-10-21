@@ -1,0 +1,21 @@
+name: Quest core checks
+on:
+  push:
+    paths: ['quest_robot_teleop/**', '.github/workflows/quest-core-checks.yml']
+  pull_request:
+    paths: ['quest_robot_teleop/**']
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: quest_robot_teleop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/run_checks.py

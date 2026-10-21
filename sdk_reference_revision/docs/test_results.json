@@ -1,0 +1,52 @@
+{
+  "execution_time": "2026-10-18T00:50:58+0800",
+  "platform": "Windows-11-10.0.22631-SP0",
+  "compiler": "g++ (MinGW.org GCC-6.3.0-1) 6.3.0",
+  "unit_output": "PASS checks=138",
+  "integration": [
+    {
+      "mode": "normal",
+      "passed": true,
+      "elapsed_seconds": 1.906,
+      "output": "PASS mode=normal states=39 connections=1 crc=0 lengths=0 heartbeat_timeouts=0 stop_ms=15"
+    },
+    {
+      "mode": "faults",
+      "passed": true,
+      "elapsed_seconds": 1.891,
+      "output": "PASS mode=faults states=39 connections=1 crc=1 lengths=1 heartbeat_timeouts=0 stop_ms=1"
+    },
+    {
+      "mode": "reconnect",
+      "passed": true,
+      "elapsed_seconds": 1.906,
+      "output": "PASS mode=reconnect states=37 connections=5 crc=0 lengths=0 heartbeat_timeouts=0 stop_ms=15"
+    },
+    {
+      "mode": "silent",
+      "passed": true,
+      "elapsed_seconds": 1.187,
+      "output": "PASS mode=silent states=0 connections=3 crc=0 lengths=0 heartbeat_timeouts=2 stop_ms=15"
+    },
+    {
+      "mode": "callback_error",
+      "passed": true,
+      "elapsed_seconds": 1.89,
+      "output": "PASS mode=callback_error states=39 connections=1 crc=0 lengths=0 heartbeat_timeouts=0 stop_ms=0"
+    },
+    {
+      "mode": "absent",
+      "passed": true,
+      "elapsed_seconds": 0.265,
+      "output": "PASS mode=absent states=0 connections=0 crc=0 lengths=0 heartbeat_timeouts=0 stop_ms=31"
+    },
+    {
+      "mode": "delayed",
+      "passed": true,
+      "elapsed_seconds": 2.453,
+      "output": "PASS mode=delayed states=39 connections=1 crc=0 lengths=0 heartbeat_timeouts=0 stop_ms=16"
+    }
+  ],
+  "demo_output": "state vx=0.2 vy=0 wz=0.1\nstate vx=0.4 vy=0 wz=0.2\nstate vx=0.6 vy=0 wz=0.3\nreceived_states=3",
+  "scope": "loopback simulator only"
+}
